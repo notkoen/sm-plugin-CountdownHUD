@@ -1,197 +1,197 @@
 "Phrases"
 {
-	"Server Message"
-	{
-		"#format"		"{1:s}"
-		"en"			"{red}Console: {green}{1}"
-	}
+    "Server Message"
+    {
+        "#format"       "{1:s}"
+        "en"            "{red}Console: {green}{1}"
+    }
 
-	"Server Message with time"
-	{
-		"#format"		"{1:s},{2:s}"
-		"en"			"{red}Console: {green}{1} {default}- {orange}@ {2}"
-	}
+    "Server Message with time"
+    {
+        "#format"       "{1:s},{2:s}"
+        "en"            "{red}Console: {green}{1} {white}- {orange}@ {2}"
+    }
 
-	"Script Message"
-	{
-		"#format"		"{1:s}"
-		"en"			"{1}"
-	}
+    "Script Message"
+    {
+        "#format"       "{1:s}"
+        "en"            "{1}"
+    }
 
-	"Script Message with time"
-	{
-		"#format"		"{1:s},{2:s}"
-		"en"			"{1} {default}- {orange}@ {2}"
-	}
+    "Script Message with time"
+    {
+        "#format"       "{1:s},{2:s}"
+        "en"            "{1} {white}- {orange}@ {2}"
+    }
 
-	"Hudtext format"
-	{
-		"#format"		"{1:s}"
-		"en"			"► {1} ◄"
-	}
+    "Hudtext format"
+    {
+        "#format"       "{1:s}"
+        "en"            "► {1} ◄"
+    }
 
-	"Hudtext number"
-	{
-		"#format"		"{1:d}"
-		"en"			"► {1} ◄"
-	}
+    "Hudtext number"
+    {
+        "#format"       "{1:d}"
+        "en"            "► {1} ◄"
+    }
 
-	"Prefix"
-	{
-		"en"			"{green}[Countdown]"
-	}
+    "Prefix"
+    {
+        "en"            "{green}[Countdown]"
+    }
 
-	"Hud enabled"
-	{
-		"en"			"{default}Countdown HUD is now {green}Enabled."
-	}
+    "Hud enabled"
+    {
+        "en"            "{default}Countdown HUD is now {green}Enabled."
+    }
 
-	"Hud disabled"
-	{
-		"en"			"{default}Countdown HUD is now {red}Disabled."
-	}
+    "Hud disabled"
+    {
+        "en"            "{default}Countdown HUD is now {red}Disabled."
+    }
 
-	"Message enabled"
-	{
-		"en"			"{default}The countdown HUD will now {green}show the full console message."
-	}
+    "Message enabled"
+    {
+        "en"            "{default}The countdown HUD will now {green}show the full console message."
+    }
 
-	"Message disabled"
-	{
-		"en"			"{default}The countdown HUD will now {red}show numbers only."
-	}
+    "Message disabled"
+    {
+        "en"            "{default}The countdown HUD will now {red}show numbers only."
+    }
 
-	"Position usage"
-	{
-		"en"			"{default}Usage: sm_chudpos <x:0-1> <y:0-1> (-1 = center)"
-	}
+    "Position usage"
+    {
+        "en"            "{default}Usage: sm_chudpos <x:0-1> <y:0-1> (-1 = center)"
+    }
 
-	"Color usage"
-	{
-		"en"			"{default}Usage: sm_chudcolor <R> <G> <B> (0 - 255)"
-	}
-	
-	"Successful reload"
-	{
-		"en"			"{lightgreen}Successfully reloaded blacklist config."
-	}
+    "Color usage"
+    {
+        "en"            "{default}Usage: sm_chudcolor <R> <G> <B> (0 - 255)"
+    }
+    
+    "Successful reload"
+    {
+        "en"            "{lightgreen}Successfully reloaded blacklist config."
+    }
 
-	"Unsuccessful reload"
-	{
-		"en"			"{red}Unsuccessfully reloaded blacklist config. Check logs for more info."
-	}
+    "Unsuccessful reload"
+    {
+        "en"            "{red}Unsuccessfully reloaded blacklist config. Check logs for more info."
+    }
 
-	"Successful map reload"
-	{
-		"en"			"{lightgreen}Successfully reloaded the map countdown hud file."
-	}
+    "Successful map reload"
+    {
+        "en"            "{lightgreen}Successfully reloaded the map countdown hud file."
+    }
 
-	"Unsuccessful map reload"
-	{
-		"en"			"{red}Unsuccessfully reloaded map config. Check logs for more info."
-	}
+    "Unsuccessful map reload"
+    {
+        "en"            "{red}Unsuccessfully reloaded map config. Check logs for more info."
+    }
 
-	"Position update"
-	{
-		"#format"		"{1:f},{2:f}"
-		"en"			"{default}You updated your HUD position to: {green}{1} {2}"
-	}
+    "Position update"
+    {
+        "#format"       "{1:f},{2:f}"
+        "en"            "{default}You updated your HUD position to: {green}{1} {2}"
+    }
 
-	"Color update"
-	{
-		"#format"		"{1:d},{2:d},{3:d}"
-		"en"			"{default}You updated your HUD color to: {darkred}{1} {green}{2} {blue}{3}"
-	}
+    "Color update"
+    {
+        "#format"       "{1:d},{2:d},{3:d}"
+        "en"            "{default}You updated your HUD color to: {darkred}{1} {green}{2} {blue}{3}"
+    }
 
-	"Menu enabled"
-	{
-		"en"			"Countdown HUD: Enabled"
-	}
+    "Menu enabled"
+    {
+        "en"            "Countdown HUD: Enabled"
+    }
 
-	"Menu disabled"
-	{
-		"en"			"Countdown HUD: Disabled"
-	}
+    "Menu disabled"
+    {
+        "en"            "Countdown HUD: Disabled"
+    }
 
-	"Menu style"
-	{
-		"#format"		"{1:s}"
-		"en"			"Style: {1}"
-	}
-	"GameText"
-	{
-		"en"			"Dynamic"
-	}
-	"Panel"
-	{
-		"en"			"Static"
-	}
-	"Style changed"
-	{
-		"#format"		"{1:s}"
-		"en"			"{default}You changed your HUD style to: {green}{1}"
-	}
-	"Menu message enabled"
-	{
-		"en"			"Show full message: Enabled"
-	}
-	"Menu message disabled"
-	{
-		"en"			"Show full message: Disabled"
-	}
-	"Menu position"
-	{
-		"#format"		"{1:f},{2:f}"
-		"en"			"HUD Position: {1} {2}"
-	}
-	"Menu color"
-	{
-		"#format"		"{1:d},{2:d},{3:d}"
-		"en"			"HUD Color: {1} {2} {3}"
-	}
-	"Menu title"
-	{
-		"en"			"CountdownHUD Options\n "
-	}
-	"Map config not ok"
-	{
-		"en"			"{default}The map config has not been loaded/created."
-	}
-	"No messages found"
-	{
-		"en"			"{default}There were no timer messages found in the map config."
-	}
-	"All timers cleared"
-	{
-		"en"			"{default}All timers cleared."
-	}
-	"Try reloading"
-	{
-		"en"			"{default}Failed to find another number. Try reloading the list."
-	}
-	"Blacklist usage"
-	{
-		"en"			"Usage: sm_chudblacklist <string> <0=global 1=map only>"
-	}
-	"Blacklist menu title"
-	{
-		"#format"		"{1:s},{2:s}"
-		"en"			"You are adding\n \"{1}\"\n to the {2} blacklist"
-	}
-	"Blacklist menu yes"
-	{
-		"en"			"Ok"
-	}
-	"Blacklist menu no"
-	{
-		"en"			"Cancel"
-	}
-	"Blacklist cancelled"
-	{
-		"en"			"Cancelled adding to the blacklist."
-	}
-	"Blacklist added"
-	{
-		"en"			"Successfully added to the blacklist."
-	}
+    "Menu style"
+    {
+        "#format"       "{1:s}"
+        "en"            "Style: {1}"
+    }
+    "GameText"
+    {
+        "en"            "Dynamic"
+    }
+    "Panel"
+    {
+        "en"            "Static"
+    }
+    "Style changed"
+    {
+        "#format"       "{1:s}"
+        "en"            "{default}You changed your HUD style to: {green}{1}"
+    }
+    "Menu message enabled"
+    {
+        "en"            "Show full message: Enabled"
+    }
+    "Menu message disabled"
+    {
+        "en"            "Show full message: Disabled"
+    }
+    "Menu position"
+    {
+        "#format"       "{1:f},{2:f}"
+        "en"            "HUD Position: {1} {2}"
+    }
+    "Menu color"
+    {
+        "#format"       "{1:d},{2:d},{3:d}"
+        "en"            "HUD Color: {1} {2} {3}"
+    }
+    "Menu title"
+    {
+        "en"            "CountdownHUD Options\n "
+    }
+    "Map config not ok"
+    {
+        "en"            "{default}The map config has not been loaded/created."
+    }
+    "No messages found"
+    {
+        "en"            "{default}There were no timer messages found in the map config."
+    }
+    "All timers cleared"
+    {
+        "en"            "{default}All timers cleared."
+    }
+    "Try reloading"
+    {
+        "en"            "{default}Failed to find another number. Try reloading the list."
+    }
+    "Blacklist usage"
+    {
+        "en"            "Usage: sm_chudblacklist <string> <0=global 1=map only>"
+    }
+    "Blacklist menu title"
+    {
+        "#format"       "{1:s},{2:s}"
+        "en"            "You are adding\n \"{1}\"\n to the {2} blacklist"
+    }
+    "Blacklist menu yes"
+    {
+        "en"            "Ok"
+    }
+    "Blacklist menu no"
+    {
+        "en"            "Cancel"
+    }
+    "Blacklist cancelled"
+    {
+        "en"            "Cancelled adding to the blacklist."
+    }
+    "Blacklist added"
+    {
+        "en"            "Successfully added to the blacklist."
+    }
 }
