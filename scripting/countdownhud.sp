@@ -808,7 +808,7 @@ public void GetHudText(char[] buffer, int maxlen)
         strcopy(line, sizeof(line), g_sLine[i]);
 
         /* Remove spam chars BEFORE any html added */
-        if (g_hCVar_RemoveSpamChars.IntValue == 1)
+        if (g_hCVar_RemoveSpamChars.BoolValue)
             RemoveChars(line, MAXLENGTH_INPUT);
 
         /* Add hudtext format */
@@ -833,7 +833,11 @@ public void GetHudText(char[] buffer, int maxlen)
 
     /* Add font size setting */
     int activecount = 0;
-    for (int i = 0; i < TIMER_COUNT; i++) if (g_timer[i] != null) activecount++;
+    for (int i = 0; i < TIMER_COUNT; i++)
+    {
+        if (g_timer[i] != null)
+            activecount++;
+    }
 
     switch (activecount)
     {
@@ -1011,12 +1015,15 @@ public void DrawSubMenu(int client)
     menu.SetTitle(sBuffer);
     menu.ExitBackButton = true;
 
-    // Toggle
-    if (g_bClientEnabled[client]) Format(sBuffer, sizeof(sBuffer), "%T", "Menu enabled", client);
-    else Format(sBuffer, sizeof(sBuffer), "%T", "Menu disabled", client);
+    /* Toggle */
+    if (g_bClientEnabled[client])
+        Format(sBuffer, sizeof(sBuffer), "%T", "Menu enabled", client);
+    else
+        Format(sBuffer, sizeof(sBuffer), "%T", "Menu disabled", client);
+
     menu.AddItem("hud_toggle", sBuffer);
 
-    // Color
+    /* Color */
     Format(sBuffer, sizeof(sBuffer), "%T", "Menu color", client, g_iClientColor[0][client], g_iClientColor[1][client], g_iClientColor[2][client]);
     menu.AddItem("hud_color", sBuffer);
 
@@ -1044,6 +1051,7 @@ public int Cookie_handler(Menu menu, MenuAction action, int param1, int param2)
                 g_bClientEnabled[param1] = true;
                 CPrintToChat(param1, "%t %t", "Prefix", "Hud enabled");
             }
+
             SaveClientCookie(param1);
             DrawSubMenu(param1);
         }
@@ -1277,7 +1285,8 @@ public int FindOtherNumber(const char[][] sWords, int iWords)
         }
 
         int num = StringToInt(sWords[i]);
-        if (num != 0) return num;
+        if (num != 0)
+            return num;
 
         int firstNumIndex = -1;
         for (int j = 0; j <= strlen(sWords[i]); j++)
@@ -1433,20 +1442,19 @@ void FindNumbers(const char[] message, bool clear = false)
 int FindNumberInString(const char[] sBuffer, int& index)
 {
     int len = strlen(sBuffer);
-    if (index >= len) return -1;
+    if (index >= len)
+        return -1;
 
     int firstNumIndex = index;
     int lastNumIndex;
 
     while (!IsCharNumeric(sBuffer[firstNumIndex]) && firstNumIndex < len)
-    {
         ++firstNumIndex;
-    }
 
     if (firstNumIndex == len)
     {
         index = len;
-        return -1; //No number found
+        return -1; // No number found
     }
 
     lastNumIndex = firstNumIndex;
@@ -1490,8 +1498,11 @@ int StepNumber(const char[] message)
     {
         if (StringToInt(sNums[i]) == num)
         {
-            if (i == (nums-1)) next = 0;
-            else next = i+1;
+            if (i == (nums-1))
+                next = 0;
+            else
+                next = i+1;
+
             break;
         }
     }
@@ -1632,7 +1643,6 @@ public bool CheckForSpam(const char[] sMessage, int num)
  */
 void AddMessageToConfig(const char[] message, int mode, int number, const char[] numbers = "")
 {
-
     if (mode != -1)
         g_MessageStatus.SetValue(message, mode);
 
@@ -1759,8 +1769,12 @@ public void ShowClearMenu(int client)
             added++;
         }
     }
-    if (added > 0) cmenu.InsertItem(0, "all", "Clear all");
-    else cmenu.AddItem("nothing", "No Active Timers", ITEMDRAW_DISABLED);
+
+    if (added > 0)
+        cmenu.InsertItem(0, "all", "Clear all");
+    else
+        cmenu.AddItem("nothing", "No Active Timers", ITEMDRAW_DISABLED);
+
     cmenu.Display(client, MENU_TIME_FOREVER);
 }
 
@@ -1775,10 +1789,8 @@ public int ClearMenu_Handler(Menu menu, MenuAction action, int param1, int param
             if (StrEqual(sBuf, "all", false))
             {
                 for (int i = 0; i < TIMER_COUNT; i++)
-                {
-                    /* Timers safely auto-end if number is <=0 */
-                    g_iNumber[i] = 0;
-                }
+                    g_iNumber[i] = 0; /* Timers safely auto-end if number is <=0 */
+
                 CPrintToChat(param1, "%t %t", "Prefix", "All timers cleared");
                 ShowAdminSubMenu(param1);
             }
@@ -1788,8 +1800,15 @@ public int ClearMenu_Handler(Menu menu, MenuAction action, int param1, int param
                 ShowClearMenu(param1);
             }
         }
-        case MenuAction_Cancel: if (param2 == MenuCancel_ExitBack) ShowAdminSubMenu(param1);
-        case MenuAction_End: delete menu;
+        case MenuAction_Cancel:
+        {
+            if (param2 == MenuCancel_ExitBack)
+                ShowAdminSubMenu(param1);
+        }
+        case MenuAction_End:
+        {
+            delete menu;
+        }
     }
     return 1;
 }
@@ -1839,8 +1858,15 @@ public int ModifyMenu_Handler(Menu menu, MenuAction action, int param1, int para
             GetMenuItem(menu, param2, sMessage, sizeof(sMessage));
             DrawMessageConfigMenu(param1, sMessage, param2);
         }
-        case MenuAction_Cancel: if (param2 == MenuCancel_ExitBack) ShowAdminSubMenu(param1);
-        case MenuAction_End: delete menu;
+        case MenuAction_Cancel:
+        {
+            if (param2 == MenuCancel_ExitBack)
+                ShowAdminSubMenu(param1);
+        }
+        case MenuAction_End:
+        {
+            delete menu;
+        }
     }
     return 0;
 }
@@ -1851,9 +1877,9 @@ public void DrawMessageConfigMenu(int client, const char[] sMessage, int itemNum
     strcopy(message_fix, sizeof(message_fix), sMessage);
     ReplaceString(message_fix, sizeof(message_fix), "%", "%%");
 
-    char sBuf[32];
-    char sEnabled[8];
+    char sBuf[32], sEnabled[8];
     int status = 0;
+
     g_MessageStatus.GetValue(sMessage, status);
     IntToString(status, sEnabled, sizeof(sEnabled));
 
@@ -1875,7 +1901,8 @@ public void DrawMessageConfigMenu(int client, const char[] sMessage, int itemNum
         iWords = ExplodeString(sMessage, " ", sWords, sizeof(sWords), sizeof(sWords[]));
 
         number = FindCountableNumber(sWords, iWords);
-        if (number < 1) number = FindOtherNumber(sWords, iWords);
+        if (number < 1)
+            number = FindOtherNumber(sWords, iWords);
 
         AddMessageToConfig(sMessage, -1, number);
     }
@@ -1918,13 +1945,12 @@ public int MessageConfig_Handler(Menu menu, MenuAction action, int param1, int p
                 back = true;
             }
             else if (StrEqual(sOption, "r"))
-            {
                 FindNumbers(sMessage, true);
-            }
             else if (StrEqual(sOption, "n"))
             {
                 int status = StepNumber(sMessage);
-                if (status <= 0) CPrintToChat(param1, "%t %t", "Prefix", "Try reloading");
+                if (status <= 0)
+                    CPrintToChat(param1, "%t %t", "Prefix", "Try reloading");
             }
             else // Change status
             {
